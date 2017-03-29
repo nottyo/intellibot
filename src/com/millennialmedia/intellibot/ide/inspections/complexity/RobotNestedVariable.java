@@ -23,11 +23,10 @@ public class RobotNestedVariable extends SimpleRobotInspection {
 
     @Override
     public boolean skip(PsiElement element) {
-        if (element.getNode().getElementType() != RobotTokenTypes.VARIABLE) {
-            return true;
+        if (element instanceof Variable){
+            return !((Variable) element).isNested();
         }
-        PsiElement parent = element.getParent();
-        return !(parent instanceof Variable) || !((Variable) parent).isNested();
+        return true;
     }
 
     @Override

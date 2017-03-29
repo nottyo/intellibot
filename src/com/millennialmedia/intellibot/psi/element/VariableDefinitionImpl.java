@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -66,6 +67,16 @@ public class VariableDefinitionImpl extends RobotPsiElementBase implements Varia
         String text = getPresentableText();
         return StringUtil.getOccurrenceCount(text, "}") > 1 &&
                 (StringUtil.getOccurrenceCount(text, "${") + StringUtil.getOccurrenceCount(text, "@{") + StringUtil.getOccurrenceCount(text, "%{") > 1);
+    }
+
+    @Override
+    public boolean isValidNaming() {
+        //ignore checking wih %{ENV_VARIABLE}
+        if(Pattern.matches("%\\{.*\\}", getPresentableText())){
+            return true;
+        }
+        String regex = "[$|@|&]\\{[a-z0-9_]+\\}";
+        return Pattern.matches(regex, getPresentableText());
     }
 
     @Override

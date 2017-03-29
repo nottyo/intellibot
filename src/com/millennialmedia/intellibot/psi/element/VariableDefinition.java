@@ -9,4 +9,6 @@ public interface VariableDefinition extends RobotStatement, PsiNamedElement {
 
     // TODO: this should go away once we identify the nesting correctly
     boolean isNested();
+    boolean isValidNaming();
+
 }

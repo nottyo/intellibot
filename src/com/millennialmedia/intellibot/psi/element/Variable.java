@@ -7,4 +7,5 @@ package com.millennialmedia.intellibot.psi.element;
 public interface Variable extends RobotStatement {
 
     boolean isNested();
+    boolean isValidNaming();
 }

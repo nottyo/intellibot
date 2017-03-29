@@ -79,6 +79,8 @@
                                implementationClass="com.millennialmedia.intellibot.psi.RobotParserDefinition"/>
         <lang.psiStructureViewFactory language="Robot" implementationClass="com.millennialmedia.intellibot.ide.structure.RobotStructureViewFactory"/>
 
+
+
         <!-- Manipulators -->
         <lang.elementManipulator forClass="com.millennialmedia.intellibot.psi.element.KeywordInvokable"
                                  implementationClass="com.millennialmedia.intellibot.psi.manip.KeywordInvokableManipulator"/>
@@ -125,6 +127,12 @@
         <localInspection language="Robot" shortName="RobotNestedVariableDefinition" bundle="com.millennialmedia.intellibot.RobotBundle"
                          key="INSP.NAME.variableDefinition.nested" groupPath="Robot" groupKey="INSP.GROUP.complexity" enabledByDefault="true"
                          level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.complexity.RobotNestedVariableDefinition"/>
+        <localInspection language="Robot" shortName="RobotVariableNaming" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.NAME.variable.naming" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotVariableNaming"/>
+        <localInspection language="Robot" shortName="RobotVariableDefinitionNaming" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.NAME.variableDefinition.naming" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotVariableDefinitionNaming"/>
         <!-- Inspections: Deprecated -->
         <!-- TODO: inspection: warn: deprecated settings; '*** user keywords ***', timeout, etc -->
 

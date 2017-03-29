@@ -45,8 +45,8 @@ public class RobotCompletionContributor extends CompletionContributor {
                 return moveCaret(editor, tailOffset, 2);
             } else {
                 // if there are not spaces then add two and move the caret after them
-                document.insertString(tailOffset, "  ");
-                return moveCaret(editor, tailOffset, 2);
+                document.insertString(tailOffset, "    ");
+                return moveCaret(editor, tailOffset, 4);
             }
         }
     };
