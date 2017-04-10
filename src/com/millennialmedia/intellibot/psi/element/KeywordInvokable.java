@@ -12,4 +12,5 @@ public interface KeywordInvokable extends RobotStatement, PsiNamedElement {
 
     @NotNull
     Collection<Argument> getArguments();
+    boolean isCapitalize();
 }

@@ -7,6 +7,7 @@ import com.intellij.psi.PsiNameIdentifierOwner;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.millennialmedia.intellibot.ide.icons.RobotIcons;
 import com.millennialmedia.intellibot.psi.util.PatternUtil;
+import com.millennialmedia.intellibot.psi.util.ReservedVariable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -71,11 +72,11 @@ public class VariableDefinitionImpl extends RobotPsiElementBase implements Varia
 
     @Override
     public boolean isValidNaming() {
-        //ignore checking wih %{ENV_VARIABLE}
-        if(Pattern.matches("%\\{.*\\}", getPresentableText())){
+        //ignore checking wih %{ENV_VARIABLE} and reserved variables
+        if(Pattern.matches("%\\{.*\\}", getPresentableText()) || ReservedVariable.isReservedVariable(getPresentableText())){
             return true;
         }
-        String regex = "[$|@|&]\\{[a-z0-9_]+\\}";
+        String regex = "^[$|@|&]\\{[a-z0-9_]+\\}[=]?";
         return Pattern.matches(regex, getPresentableText());
     }
 

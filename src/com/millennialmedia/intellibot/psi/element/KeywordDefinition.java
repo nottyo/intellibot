@@ -28,4 +28,7 @@ public interface KeywordDefinition extends RobotStatement, PsiNamedElement {
      * @return true if there are inline variables defined, false otherwise.
      */
     boolean hasInlineVariables();
+    boolean isCapitalize();
+    boolean containTags();
+    boolean isTestCase();
 }

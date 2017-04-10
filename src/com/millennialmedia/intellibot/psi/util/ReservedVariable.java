@@ -69,6 +69,15 @@ public enum ReservedVariable {
         return String.format(SCALAR, text);
     }
 
+    public static boolean isReservedVariable(@NotNull String text){
+        for (ReservedVariable variable : ReservedVariable.values()){
+            if (text.equals(variable.getVariable())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @NotNull
     public String getVariable() {
         return this.variable;

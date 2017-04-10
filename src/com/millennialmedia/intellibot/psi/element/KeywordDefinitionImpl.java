@@ -9,6 +9,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.millennialmedia.intellibot.ide.icons.RobotIcons;
 import com.millennialmedia.intellibot.psi.util.PerformanceCollector;
 import com.millennialmedia.intellibot.psi.util.PerformanceEntity;
+import org.apache.commons.lang.WordUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -76,6 +77,12 @@ public class KeywordDefinitionImpl extends RobotPsiElementBase implements Keywor
         return getInlineVariables().size() > 0;
     }
 
+    @Override
+    public boolean isCapitalize() {
+        String keywordName = getPresentableText();
+        return keywordName.equals(WordUtils.capitalize(keywordName));
+    }
+
     @NotNull
     private Collection<DefinedVariable> getInlineVariables() {
         Collection<DefinedVariable> results = this.definedInlineVariables;
@@ -135,6 +142,35 @@ public class KeywordDefinitionImpl extends RobotPsiElementBase implements Keywor
             }
         }
         return results;
+    }
+
+    @Override
+    public boolean containTags() {
+        for (PsiElement child : getChildren()) {
+            if (child instanceof BracketSetting) {
+                BracketSetting bracket = (BracketSetting) child;
+                if (bracket.isTags()) {
+                    for (PsiElement argument : bracket.getChildren()) {
+                        if (argument instanceof Argument) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isTestCase() {
+        PsiElement parent = getParent();
+        if (parent instanceof Heading) {
+            Heading heading = (Heading) parent;
+            if (heading.containsTestCases()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

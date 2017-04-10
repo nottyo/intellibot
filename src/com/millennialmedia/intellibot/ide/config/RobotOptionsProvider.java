@@ -22,6 +22,8 @@ public class RobotOptionsProvider implements PersistentStateComponent<RobotOptio
         public boolean debug = false;
         public boolean capitalizeKeywords = true;
         public boolean inlineVariableSearch = false;
+        public int minSteps = 2;
+        public int maxSteps = 10;
     }
 
     private State state = new State();
@@ -43,6 +45,8 @@ public class RobotOptionsProvider implements PersistentStateComponent<RobotOptio
         this.state.globalVariables = state.globalVariables;
         this.state.capitalizeKeywords = state.capitalizeKeywords;
         this.state.inlineVariableSearch = state.inlineVariableSearch;
+        this.state.minSteps = state.minSteps;
+        this.state.maxSteps = state.maxSteps;
     }
 
     public boolean isDebug() {
@@ -83,5 +87,21 @@ public class RobotOptionsProvider implements PersistentStateComponent<RobotOptio
 
     public void setInlineVariableSearch(boolean inlineVariableSearch) {
         this.state.inlineVariableSearch = inlineVariableSearch;
+    }
+
+    public void setMinSteps(int minSteps) {
+        this.state.minSteps = minSteps;
+    }
+
+    public void setMaxSteps(int maxSteps) {
+        this.state.maxSteps = maxSteps;
+    }
+
+    public int getMinSteps(){
+        return this.state.minSteps;
+    }
+
+    public int getMaxSteps(){
+        return this.state.maxSteps;
     }
 }

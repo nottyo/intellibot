@@ -23,6 +23,10 @@ public class RobotConfiguration implements SearchableConfigurable, Configurable.
     private JCheckBox allowGlobalVariables;
     private JCheckBox capitalizeKeywords;
     private JCheckBox inlineVariableSearch;
+    private JLabel minStepsLabel;
+    private JTextField minStepsTextField;
+    private JTextField maxStepsTextField;
+    private JLabel maxStepsLabel;
 
     public RobotConfiguration(@NotNull RobotOptionsProvider provider) {
         this.provider = provider;
@@ -64,7 +68,9 @@ public class RobotConfiguration implements SearchableConfigurable, Configurable.
                 this.provider.allowTransitiveImports() != this.allowTransitiveImports.isSelected() ||
                 this.provider.allowGlobalVariables() != this.allowGlobalVariables.isSelected() ||
                 this.provider.capitalizeKeywords() != this.capitalizeKeywords.isSelected() ||
-                this.provider.inlineVariableSearch() != this.inlineVariableSearch.isSelected();
+                this.provider.inlineVariableSearch() != this.inlineVariableSearch.isSelected() ||
+                this.provider.getMinSteps() != Integer.parseInt(this.minStepsTextField.getText()) ||
+                this.provider.getMaxSteps() != Integer.parseInt(this.maxStepsTextField.getText());
     }
 
     @Override
@@ -74,6 +80,8 @@ public class RobotConfiguration implements SearchableConfigurable, Configurable.
         this.provider.setGlobalVariables(this.allowGlobalVariables.isSelected());
         this.provider.setCapitalizeKeywords(this.capitalizeKeywords.isSelected());
         this.provider.setInlineVariableSearch(this.inlineVariableSearch.isSelected());
+        this.provider.setMinSteps(Integer.parseInt(this.minStepsTextField.getText()));
+        this.provider.setMaxSteps(Integer.parseInt(this.maxStepsTextField.getText()));
     }
 
     @Override

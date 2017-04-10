@@ -33,8 +33,10 @@ public class RobotArgumentReference extends PsiReferenceBase<Argument> {
                 Import importElement = (Import) parent;
                 if (importElement.isResource()) {
                     result = resolveResource();
-                } else if (importElement.isLibrary() || importElement.isVariables()) {
+                } else if (importElement.isLibrary()) {
                     result = resolveLibrary();
+                } else if (importElement.isVariables()) {
+                    result = resolveVariables();
                 }
             }
         } else if (parent instanceof KeywordStatement) {
@@ -68,6 +70,17 @@ public class RobotArgumentReference extends PsiReferenceBase<Argument> {
     private PsiElement resolveResource() {
         return RobotFileManager.findRobot(getElement().getPresentableText(),
                 getElement().getProject(), getElement());
+    }
+
+    private PsiElement resolveVariables() {
+        if (getElement().getPresentableText().contains(".py")) {
+            return RobotFileManager.findPython(getElement().getPresentableText(),
+                    getElement().getProject(), getElement());
+        } else if (getElement().getPresentableText().contains(".yaml")) {
+            return RobotFileManager.findYAML(getElement().getPresentableText(),
+                    getElement().getProject(), getElement());
+        }
+        return null;
     }
 
     @NotNull

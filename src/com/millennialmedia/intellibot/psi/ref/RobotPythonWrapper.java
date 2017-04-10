@@ -83,7 +83,7 @@ public abstract class RobotPythonWrapper {
                                         // Get case 'name =' argument
                                         PyExpression kwa = keyword_decorator.getKeywordArgument("name");
                                         if (kwa != null) {
-                                            keyword = kwa.getText().replaceAll("^\"|\"$", "");
+                                            keyword = kwa.getText().replaceAll("^\"|\"$|^\'|\'$", "");
                                         }
                                         else {
                                             // Otherwise, check if first argument is unnamed
@@ -91,7 +91,7 @@ public abstract class RobotPythonWrapper {
 
                                             // Argument exists and is unnamed
                                             if (kda.length > 0 && kda[0].getName() == null) {
-                                                keyword = kda[0].getText().replaceAll("^\"|\"$", "");
+                                                keyword = kda[0].getText().replaceAll("^\"|\"$|^\'|\'$", "");
                                             }
                                         }
                                     }

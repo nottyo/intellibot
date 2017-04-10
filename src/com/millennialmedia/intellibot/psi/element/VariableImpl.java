@@ -5,6 +5,7 @@ import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.PsiReference;
 import com.millennialmedia.intellibot.psi.ref.RobotVariableReference;
 import com.millennialmedia.intellibot.psi.util.PatternUtil;
+import com.millennialmedia.intellibot.psi.util.ReservedVariable;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.xerces.impl.xpath.regex.Match;
 import org.jetbrains.annotations.NotNull;
@@ -37,11 +38,11 @@ public class VariableImpl extends RobotPsiElementBase implements Variable {
 
     @Override
     public boolean isValidNaming() {
-        //ignore checking wih %{ENV_VARIABLE}
-        if(Pattern.matches("%\\{.*\\}", getPresentableText())){
+        //ignore checking wih %{ENV_VARIABLE} and reserved variables
+        if(Pattern.matches("%\\{.*\\}", getPresentableText()) || ReservedVariable.isReservedVariable(getPresentableText())){
             return true;
         }
-        String regex = "[$|@|&]\\{[a-z0-9_]+\\}";
-        return Pattern.matches(regex, getPresentableText());
+        String regex = "^[$|@|&]\\{[a-z0-9_]+\\}[=]?";
+        return Pattern.matches(regex, getPresentableText().trim());
     }
 }

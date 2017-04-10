@@ -129,10 +129,41 @@
                          level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.complexity.RobotNestedVariableDefinition"/>
         <localInspection language="Robot" shortName="RobotVariableNaming" bundle="com.millennialmedia.intellibot.RobotBundle"
                          key="INSP.NAME.variable.naming" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
-                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotVariableNaming"/>
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.variables.RobotVariableNaming"/>
         <localInspection language="Robot" shortName="RobotVariableDefinitionNaming" bundle="com.millennialmedia.intellibot.RobotBundle"
                          key="INSP.NAME.variableDefinition.naming" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
-                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotVariableDefinitionNaming"/>
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.variables.RobotVariableDefinitionNaming"/>
+        <localInspection language="Robot" shortName="RobotKeywordNaming" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.keyword.naming" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.keywords.RobotKeywordNaming"/>
+        <localInspection language="Robot" shortName="RobotKeywordDefinitionNaming" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.keywordDefinition.naming" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.keywords.RobotKeywordDefinitionNaming"/>
+        <localInspection language="Robot" shortName="RobotDocumentation" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.keywordDefinition.documentation" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="ERROR" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.keywords.RobotDocumentation"/>
+        <localInspection language="Robot" shortName="RobotMinSteps" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.steps.minsteps" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.keywords.RobotMinSteps"/>
+        <localInspection language="Robot" shortName="RobotLineTooLong" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.line.toolong" groupPath="Robot" groupName="Robot" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotLineTooLong" />
+        <localInspection language="Robot" shortName="RobotTestCaseNamePattern" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.testcase.pattern" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="ERROR" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.testcases.RobotTestCaseNamePattern" />
+        <localInspection language="Robot" shortName="RobotDuplicateTestCase" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.testcase.duplicate" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="ERROR" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.testcases.RobotDuplicateTestCase" />
+        <localInspection language="Robot" shortName="RobotWhiteSpaces" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.statement.whitespace" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotWhiteSpaces" />
+        <localInspection language="Robot" shortName="RobotTags" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.tags.definition" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="ERROR" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.RobotTags" />
+        <localInspection language="Robot" shortName="RobotBadKeywords" bundle="com.millennialmedia.intellibot.RobotBundle"
+                         key="INSP.keyword.badkeyword" groupPath="Robot" groupKey="INSP.GROUP.style" enabledByDefault="true"
+                         level="WARNING" implementationClass="com.millennialmedia.intellibot.ide.inspections.style.keywords.RobotBadKeywords" />
+
         <!-- Inspections: Deprecated -->
         <!-- TODO: inspection: warn: deprecated settings; '*** user keywords ***', timeout, etc -->
 

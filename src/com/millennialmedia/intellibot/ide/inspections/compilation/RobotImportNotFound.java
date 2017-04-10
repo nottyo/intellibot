@@ -5,6 +5,7 @@ import com.intellij.psi.PsiReference;
 import com.millennialmedia.intellibot.RobotBundle;
 import com.millennialmedia.intellibot.ide.inspections.SimpleRobotInspection;
 import com.millennialmedia.intellibot.psi.RobotTokenTypes;
+import com.millennialmedia.intellibot.psi.element.Argument;
 import com.millennialmedia.intellibot.psi.element.Import;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
@@ -33,6 +34,7 @@ public class RobotImportNotFound extends SimpleRobotInspection {
             // first child seems to be different than this
             if (children.length > 0 && children[0] == element) {
                 PsiReference reference = element.getReference();
+                Argument arg = (Argument) element;
                 return reference != null && reference.resolve() != null;
             } else {
                 return true;

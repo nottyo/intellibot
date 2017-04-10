@@ -10,6 +10,8 @@ public class BracketSettingImpl extends RobotPsiElementBase implements BracketSe
 
     private static final String ARGUMENTS = "[Arguments]";
     private static final String TEARDOWN = "[Teardown]";
+    private static final String DOCUMENTATION = "[Documentation]";
+    private static final String TAGS = "[Tags]";
 
     public BracketSettingImpl(@NotNull final ASTNode node) {
         super(node);
@@ -25,5 +27,15 @@ public class BracketSettingImpl extends RobotPsiElementBase implements BracketSe
     public boolean isTeardown() {
         // TODO: better OO
         return TEARDOWN.equalsIgnoreCase(getPresentableText());
+    }
+
+    @Override
+    public boolean isDocumented() {
+        return DOCUMENTATION.equalsIgnoreCase(getPresentableText());
+    }
+
+    @Override
+    public boolean isTags() {
+        return TAGS.equalsIgnoreCase(getPresentableText());
     }
 }

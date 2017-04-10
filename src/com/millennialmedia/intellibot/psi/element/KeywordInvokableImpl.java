@@ -4,6 +4,7 @@ import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiReference;
 import com.millennialmedia.intellibot.psi.ref.RobotKeywordReference;
+import org.apache.commons.lang.WordUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
@@ -26,6 +27,12 @@ public class KeywordInvokableImpl extends RobotPsiElementBase implements Keyword
             return ((KeywordStatement) parent).getArguments();
         }
         return Collections.emptySet();
+    }
+
+    @Override
+    public boolean isCapitalize() {
+        String keywordName = getPresentableText();
+        return keywordName.equals(WordUtils.capitalize(keywordName));
     }
 
     @Override

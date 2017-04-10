@@ -18,4 +18,18 @@ public interface Setting extends RobotStatement {
      * @return true if this is a test teardown element; false otherwise.
      */
     boolean isTestTeardown();
+
+    /**
+     * Determines if the current element is a 'Default Tags' element.
+     *
+     * @return true if this is a default tags element; false otherwise.
+     */
+    boolean isDefaultTags();
+
+    /**
+     * Determines if the current element is a 'Force Tags' element.
+     *
+     * @return true if this is a force tags element; false otherwise.
+     */
+    boolean isForceTags();
 }

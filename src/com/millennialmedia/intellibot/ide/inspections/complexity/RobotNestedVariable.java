@@ -3,7 +3,6 @@ package com.millennialmedia.intellibot.ide.inspections.complexity;
 import com.intellij.psi.PsiElement;
 import com.millennialmedia.intellibot.RobotBundle;
 import com.millennialmedia.intellibot.ide.inspections.SimpleRobotInspection;
-import com.millennialmedia.intellibot.psi.RobotTokenTypes;
 import com.millennialmedia.intellibot.psi.element.Variable;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;

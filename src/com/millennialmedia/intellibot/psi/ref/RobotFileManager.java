@@ -119,6 +119,23 @@ public class RobotFileManager {
     }
 
     @Nullable
+    public static PsiElement findYAML(@Nullable String yamlFile, @NotNull Project project,
+                                      @NotNull PsiElement originalElement) {
+        if (yamlFile == null) {
+            return null;
+        }
+        PsiElement result = getFromCache(yamlFile);
+        if (result != null) {
+            return result;
+        }
+        String[] file = getFilename(yamlFile, ".yaml");
+        debug(yamlFile, "Attempting global search", project);
+        result = findGlobalFile(yamlFile, file[0], file[1], project, originalElement);
+        addToCache(result, yamlFile);
+        return result;
+    }
+
+    @Nullable
     private static PsiFile findProjectFile(@NotNull String original, @NotNull String path, @NotNull String fileName,
                                            @NotNull Project project, @NotNull PsiElement originalElement) {
         return findFile(original, path, fileName, project, ProjectScope.getContentScope(project), originalElement);

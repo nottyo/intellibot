@@ -18,4 +18,18 @@ public interface BracketSetting extends RobotStatement {
      * @return true if this is a teardown element; false otherwise.
      */
     boolean isTeardown();
+
+    /**
+     * Determines if the current element is a '[Documentation]' element.
+     *
+     * @return true if this is a documentation element; false otherwise.
+     */
+    boolean isDocumented();
+
+    /**
+     * Determines if the current element is a '[Tags]' element.
+     *
+     * @return true if this is a tags element; false otherwise.
+     */
+    boolean isTags();
 }
